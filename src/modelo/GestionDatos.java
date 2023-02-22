@@ -13,8 +13,7 @@ public class GestionDatos {
 		if (comprobarPosibleMover(posY, posX) && !hasGanado) {
 			// MOVER FICHA SELEC
 			int[] posUltimafichaGuardado = tablero.getPosUltimaFicha();
-			this.tablero.getTablero()[tablero.getPosUltimaFicha()[0]][tablero.getPosUltimaFicha()[1]] = this.tablero
-					.getTablero()[posY][posX];
+			this.tablero.getTablero()[tablero.getPosUltimaFicha()[0]][tablero.getPosUltimaFicha()[1]] = this.tablero.getTablero()[posY][posX];
 			this.tablero.getTablero()[posY][posX] = this.tablero.getUltimaPosValor();
 			
 			if(comprobarGanas()) {
