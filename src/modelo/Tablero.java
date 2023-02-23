@@ -27,15 +27,18 @@ public class Tablero {
 	public void mixTablero() {
 		//NO PUEDO HACER SWAP ALEATORIOS PORQUE SI NO PODRÍA HACER UN MOVIMIENTO ILEGAL
 		//HE OPTADO POR ESTO
+		//{{1,2,3}{4,9,5}{6,7,8}};
 		Random rand = new Random();
+		
 		for (int rep = 0; rep < 50; rep++) {
 			int[][] posicionesComprobar = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0,-1 } };
 			int contadorPosibilidades = 0;
 			// CONTAR CUANTAS FICHAS HAY DE POSIBLES MOVIMIENTOS, (PARA DAR TAMAÑO AL ARRAY)"HASTA QUE DEMOS ARRAY LIST"
 			for (int i = 0; i < 4; i++) {
 				//COMPROBAR SI EL MOVIMIENTOS ES POSIBLE
+				
 				if ((getPosUltimaFicha()[0] + posicionesComprobar[i][0]) < 3 && (getPosUltimaFicha()[1] + posicionesComprobar[i][1]) < 3 &&
-				(getPosUltimaFicha()[0] + posicionesComprobar[i][0]) >= 0 && (getPosUltimaFicha()[1] + posicionesComprobar[i][1]) >= -1){
+				(getPosUltimaFicha()[0] + posicionesComprobar[i][0]) >= 0 && (getPosUltimaFicha()[1] + posicionesComprobar[i][1]) >= 0){
 					contadorPosibilidades++;
 				}
 			}
