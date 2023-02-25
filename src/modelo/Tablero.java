@@ -30,7 +30,7 @@ public class Tablero {
 		//{{1,2,3}{4,9,5}{6,7,8}};
 		Random rand = new Random();
 		
-		for (int rep = 0; rep < 50; rep++) {
+		for (int rep = 0; rep < 100; rep++) {
 			int[][] posicionesComprobar = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0,-1 } };
 			int contadorPosibilidades = 0;
 			// CONTAR CUANTAS FICHAS HAY DE POSIBLES MOVIMIENTOS, (PARA DAR TAMAÑO AL ARRAY)"HASTA QUE DEMOS ARRAY LIST"

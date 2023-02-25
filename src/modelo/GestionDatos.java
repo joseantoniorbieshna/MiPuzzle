@@ -1,5 +1,7 @@
 package modelo;
 
+import java.awt.Color;
+
 public class GestionDatos {
 	private Tablero tablero;
 	private boolean hasGanado = false;
