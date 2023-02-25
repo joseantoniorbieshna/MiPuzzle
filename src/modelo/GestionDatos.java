@@ -18,6 +18,7 @@ public class GestionDatos {
 			
 			if(comprobarGanas()) {
 				System.out.println("HAS GANADO!!");
+				hasGanado=true;
 			}
 			
 		}
@@ -49,5 +50,8 @@ public class GestionDatos {
 		}
 		return hasGanado;
 
+	}
+	public boolean hasGanado() {
+		return hasGanado;
 	}
 }

@@ -1,14 +1,22 @@
 package control;
 
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 import modelo.GestionDatos;
+import modelo.MyImagen;
 import view.UI;
 
 public class ParaUI extends UI{
 	GestionDatos gestion;
 	private ActionListener botonBehaviour;
+	private MyImagen imagen = new MyImagen();
 	public ParaUI() {
 		super();
 		//INIT GESTION, Y ALTO Y ANCHO DE TABLERO
@@ -44,10 +52,16 @@ public class ParaUI extends UI{
 		for(int y=0;y<getBotones().length;y++) {
 			for(int x=0;x<getBotones()[0].length;x++) {
 				getBotones()[y][x].setText(Integer.toString(gestion.getTablero().getTablero()[y][x]));
+				int numeroValorTablero = gestion.getTablero().getTablero()[y][x];
+				
+				//SCALE IMAGE
+				Image scaleImg = this.imagen.getSplitImage()[numeroValorTablero-1].getScaledInstance(10+(int)Math.round(getPanel().getWidth()/3), (int)Math.round(getPanel().getHeight()/3), Image.SCALE_DEFAULT);
+				getBotones()[y][x].setIcon(new ImageIcon(scaleImg));
 				
 				//SI ES EL ULTIMO VALOR
-				if(Integer.parseInt(getBotones()[y][x].getText()) == gestion.getTablero().getUltimaPosValor()) {
+				if(Integer.parseInt(getBotones()[y][x].getText()) == gestion.getTablero().getUltimaPosValor()&& !gestion.hasGanado()) {
 					getBotones()[y][x].setText("");
+					getBotones()[y][x].setIcon(null);
 				}
 			}
 		}
